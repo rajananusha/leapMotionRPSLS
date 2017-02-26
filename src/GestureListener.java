@@ -30,31 +30,6 @@ class GestListener extends Listener {
         System.out.println("Exited");
     }
 
-//    public void onFrame(Controller controller) {
-//        // Get the most recent frame and report some basic information
-//        Frame frame = controller.frame();
-//
-//        //Get hands
-//        for(Hand hand : frame.hands()) {
-//
-//            PointableList pointables = hand.pointables().extended();
-//
-//            if(pointables.count() == 0){
-//                System.out.println("Rock");
-//            } else if(pointables.count() == 2){
-//                System.out.println("Scissor");
-//            }else if(pointables.count() == 5){
-//                System.out.println("Paper");
-//            }else{
-//                System.out.println("Invalid Gesture");
-//            }
-//        }
-//
-//        if (!frame.hands().isEmpty()) {
-//            System.out.println();
-//        }
-//    }
-
 
     public static String getGesture(Controller controller) {
         // Get the most recent frame and report some basic information
@@ -66,6 +41,7 @@ class GestListener extends Listener {
 
             PointableList pointables = hand.pointables().extended();
 
+            System.out.println(pointables.count());
             if (pointables.count() == 0) {
                 userGesture = "Rock";
             } else if (pointables.count() == 2) {
@@ -79,6 +55,8 @@ class GestListener extends Listener {
             } else {
                 userGesture = "Invalid Gesture";
             }
+            System.out.println(userGesture);
+
         }
 
         if (!frame.hands().isEmpty()) {
@@ -88,35 +66,21 @@ class GestListener extends Listener {
     }
 }
 
-public class GestureListener {
 
+public class GestureListener {
     public static int HIGHSCORE = 0;
 
     public static int CURRENTSTREAK = 0;
 
+    public static void runGame(){
 
-    public static void main(String[] args) {
-
-
-        Scanner sc = new Scanner(System.in);
         // Create a sample listener and controller
         GestListener listener = new GestListener();
         Controller controller = new Controller();
         // Have the sample listener receive events from the controller
         controller.addListener(listener);
-        System.out.println("Press Enter to quit...");
-        boolean exit = false;
-        while (true) {
-            try {
-                int x = 3;
-                while (x > 0) {
-                    Thread.sleep(1000);
-                    System.out.println(x + "...");
-                    x--;
-                }
-                Thread.sleep(1000);
+        System.out.println("Starting listener");
                 String gesture = GestListener.getGesture(controller);
-
                 if (gesture.equalsIgnoreCase("Invalid Gesture") || gesture.equalsIgnoreCase("")) {
                     System.out.println("I did not recognize that gesture. Try again.");
                 } else {
@@ -130,12 +94,31 @@ public class GestureListener {
                     }
                 }
                 System.out.println("CurrentStreak=" + CURRENTSTREAK + ", HighScore:" + HIGHSCORE);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
 
-        // Remove the sample listener when done
-//        controller.removeListener(listener);
-    }
+//    public static void main(String[] args) {
+////        runGame();
+//        // Create a sample listener and controller
+//        GestListener listener = new GestListener();
+//        Controller controller = new Controller();
+//        // Have the sample listener receive events from the controller
+//        controller.addListener(listener);
+//        System.out.println("Press Enter to quit...");
+//        while (true) {
+//            try {
+//                int x = 3;
+//                while (x > 0) {
+//                    Thread.sleep(1000);
+//                    System.out.println(x + "...");
+//                    x--;
+//                }
+//                Thread.sleep(1000);
+//                runGame();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        // Remove the sample listener when done
+////        controller.removeListener(listener);
+//    }
 }
