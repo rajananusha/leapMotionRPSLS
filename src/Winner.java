@@ -6,11 +6,20 @@ import java.util.Random;
  */
 public class Winner {
 
-    public static ArrayList<String> calculateWinner(String player) {
+    public static ArrayList<String> calculateWinner(String player){
+        String computer = KMPLearning.getComputerMove();
+        return calculateWinner(computer, player);
+    }
+
+    public static ArrayList<String> calculateWinner(String computer, String player) {
         ArrayList<String> result=new ArrayList<String>();
-        Random r = new Random();
-        int comp= r.nextInt((5 - 1) + 1) + 1;
-        //System.out.println("val="+comp);
+        int comp= 0;
+        if(computer.equalsIgnoreCase("Rock"))comp=1;
+        else if(computer.equalsIgnoreCase("Paper"))comp=2;
+        else if(computer.equalsIgnoreCase("Scissor"))comp=3;
+        else if(computer.equalsIgnoreCase("Lizard"))comp=4;
+        else if(computer.equalsIgnoreCase("Spock"))comp=5;
+
         int p1=0;
         if(player.equalsIgnoreCase("Rock"))p1=1;
         else if(player.equalsIgnoreCase("Paper"))p1=2;
@@ -150,6 +159,8 @@ public class Winner {
             result.add("Won");
         }
 
+        KMPLearning.HISTORY.append(p1);
+        System.out.println(KMPLearning.HISTORY);
         return result;
     }
 }
