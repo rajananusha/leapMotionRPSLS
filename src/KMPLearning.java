@@ -141,19 +141,6 @@ public class KMPLearning {
     // Driver program to test above function
     public static void main(String args[])
     {
-//        HISTORY.append("1");
-//        HISTORY.append("2");
-//        HISTORY.append("3");
-//        HISTORY.append("4");
-//        HISTORY.append("1");
-//        HISTORY.append("2");
-//        HISTORY.append("2");
-//        HISTORY.append("2");
-//        HISTORY.append("1");
-//        HISTORY.append("2");
-//        HISTORY.append("2");
-//        HISTORY.append("2");
-
         System.out.println(HISTORY);
         System.out.println(getComputerMove());
     }

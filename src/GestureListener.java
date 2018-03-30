@@ -30,32 +30,6 @@ class GestListener extends Listener {
         System.out.println("Exited");
     }
 
-//    public void onFrame(Controller controller) {
-//        // Get the most recent frame and report some basic information
-//        Frame frame = controller.frame();
-//
-//        //Get hands
-//        for(Hand hand : frame.hands()) {
-//
-//            PointableList pointables = hand.pointables().extended();
-//
-//            if(pointables.count() == 0){
-//                System.out.println("Rock");
-//            } else if(pointables.count() == 2){
-//                System.out.println("Scissor");
-//            }else if(pointables.count() == 5){
-//                System.out.println("Paper");
-//            }else{
-//                System.out.println("Invalid Gesture");
-//            }
-//        }
-//
-//        if (!frame.hands().isEmpty()) {
-//            System.out.println();
-//        }
-//    }
-
-
     public static String getGesture(Controller controller) {
         // Get the most recent frame and report some basic information
         String userGesture = "";
@@ -135,7 +109,5 @@ public class GestureListener {
             }
         }
 
-        // Remove the sample listener when done
-//        controller.removeListener(listener);
     }
 }
