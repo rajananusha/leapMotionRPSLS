@@ -11,8 +11,8 @@ You will need the LeapMotion developer kit to run this project.
 ### Prerequisites
 
 To run this project you will need to install:
-* Java SE 7 installed
-* [LeapMotion](https://www.leapmotion.com/) gesture recognition device
+* Java SE 7
+* [LeapMotion](https://www.leapmotion.com/) gesture recognition device + LeapMotion Java SDK
 
 ### Running the project
 
